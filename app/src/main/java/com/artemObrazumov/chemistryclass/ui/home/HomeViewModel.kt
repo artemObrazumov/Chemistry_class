@@ -15,11 +15,11 @@ class HomeViewModel(
 
     fun getReagents() {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.getReagents()
-            if (result.isSuccessful) {
-                reagents.postValue( Result.success(result.body()!!) )
+            val response = repository.getReagents()
+            if (response.isSuccessful) {
+                reagents.postValue( Result.success(response.body()!!) )
             } else {
-                reagents.postValue( Result.failure(Throwable("Error getting reagents")) )
+                reagents.postValue( Result.failure(Throwable("Error loading reagents")) )
             }
         }
     }

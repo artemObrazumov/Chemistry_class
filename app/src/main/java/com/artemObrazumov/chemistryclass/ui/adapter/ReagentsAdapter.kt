@@ -38,4 +38,6 @@ class ReagentsAdapter(
         this.dataSet = data
         notifyDataSetChanged()
     }
+
+    fun getDataSet(): List<Reagent> = dataSet
 }
